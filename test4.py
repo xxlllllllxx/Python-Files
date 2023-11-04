@@ -1,12 +1,17 @@
-global_num = 100
+import test5_module as tm
+
+# print(tm.global_x)
+# print(tm.setup())
+# print(tm.App().setup())
+# print(tm.global_x)
 
 
-def calculate():
-    global global_num
-    print(global_num)
+# print(dt.datetime.now().hour)
 
-    global_num = "MODIFIED"
-    print(global_num)
 
-calculate()
-print(global_num)
+st1 = tm.Student(birthday=[2002, 6, 6], name="Lewis")
+
+# Calling the data method
+print(st1.data())
+print(st1.data().name)
+print(st1.data().birthday)
