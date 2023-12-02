@@ -31,7 +31,7 @@ class GUI:
     def static_design(self, root):
         root.title("Calculator")
         root.geometry("320x500")
-        self.textbox = tk.Text(root, height=1, font=self.font)
+        self.textbox = tk.Entry(root, font=self.font)
         self.textbox.bind("<KeyPress>", self.shortcut)
         self.textbox.pack(padx=10, pady=10)
         self.cb_ckecker_state = tk.IntVar()
@@ -46,12 +46,12 @@ class GUI:
         # print(self.textbox.get('1.0', tk.END), self.cb_ckecker_state.get())
         if self.cb_ckecker_state.get() == 1:
             messagebox.showinfo(
-                title="Checked", message=self.textbox.get("1.0", tk.END))
+                title="Checked", message=self.textbox.get())
 
     def run_clear(self):
         self.cb_ckecker_state.set(1)
         self.btn_test_click()
-        self.textbox.delete("1.0", tk.END)
+        self.textbox.delete()
 
     def shortcut(self, event):
         if event.keysym == "Return":
