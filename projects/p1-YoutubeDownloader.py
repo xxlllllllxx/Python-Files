@@ -16,7 +16,7 @@ def __main__():
     tk.Label(grid, text="Enter Youtube link: ", background="#212121", foreground="#ffffff").grid(row=0, pady=5)
     tk.Entry(grid, textvariable=tx_link, width=50).grid(row=1, pady=5, padx=40)
     tk.Button(grid, text="SEARCH", command=lambda: start(tx_link.get(), grid),
-              background="#c7000d", foreground="#ffffff").grid(row=2, pady=5)
+              background="#c7000d", foreground="#ffffff", width=20).grid(row=2, pady=5)
 
     root.mainloop()
 
@@ -45,9 +45,9 @@ def start(link: str, grid: tk.Frame):
         resolutions = [stream.resolution for stream in video_streams_webm]
         combobox_webm['values'] = resolutions
 
-        tk.Button(resFrame, text="DOWNLOAD MP4", width=20, command=lambda: download_mp4(
+        tk.Button(resFrame, text="DOWNLOAD MP4", background="#3355d3", foreground="#ffffff", width=20, command=lambda: download_mp4(
             yt_obj, cb_selected_mp4.get())).grid(padx=10, pady=5, column=1, row=0)
-        tk.Button(resFrame, text="DOWNLOAD WEBM", width=20, command=lambda: download_webm(
+        tk.Button(resFrame, text="DOWNLOAD WEBM", background="#999921", foreground="#ffffff", width=20, command=lambda: download_webm(
             yt_obj, cb_selected_webm.get())).grid(padx=10, pady=5, column=1, row=1)
     except Exception as e:
         mb.showerror("Download Error", e)
