@@ -1,5 +1,14 @@
 import requests
 
+value_log = [None, None, None]
+
+
+def manual_value(value: list = [None, None, None]):
+    global value_log
+    if value[0] is not None:
+        value_log = value
+    return value_log
+
 
 def get_binance_price(symbol):
     base_url = 'https://api.binance.com/api/v3/ticker/price'
@@ -52,22 +61,29 @@ def calculate_profit(starting_amount, symbol1, symbol2, symbol3) -> list:
         if price1 is None:
             price1 = get_binance_price(symbol2 + symbol1)
             isflipped[0] = True
+            if price1 is None:
+                price1 = float(manual_value()[0].get())
         price2 = get_binance_price(symbol2 + symbol3)
         if price2 is None:
             price2 = get_binance_price(symbol3 + symbol2)
             isflipped[1] = True
+            if price1 is None:
+                price1 = float(manual_value()[1].get())
         price3 = get_binance_price(symbol3 + symbol1)
         if price3 is None:
             price3 = get_binance_price(symbol1 + symbol3)
             isflipped[2] = True
+            if price1 is None:
+                price1 = float(manual_value()[2].get())
 
         intermediate_amount_1 = starting_amount * price1 if not isflipped[0] else starting_amount / price1
         intermediate_amount_2 = intermediate_amount_1 * price2 if not isflipped[1] else intermediate_amount_1 / price2
         final_amount = intermediate_amount_2 * price3 if not isflipped[2] else intermediate_amount_2 / price3
 
-        return [intermediate_amount_1, intermediate_amount_2, final_amount]
-    except:
-        return [float(0), float(0), float(0)]
+        return [intermediate_amount_1, intermediate_amount_2, final_amount, price1, price2, price3]
+    except Exception as e:
+        print(e)
+        return [float(0), float(0), float(0), float(0), float(0), float(0)]
 
 
 if __name__ == "__main__":
