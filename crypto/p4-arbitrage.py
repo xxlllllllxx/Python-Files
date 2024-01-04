@@ -22,14 +22,14 @@ def calculate(status: ctk.CTkLabel, coin1: ctk.StringVar, val1: ctk.StringVar, c
     coin3.set(coin3.get().upper())
 
     result = calculate_profit(float(val1.get()), coin1.get(), coin2.get(), coin3.get())
-    val1.set(f"{float(val1.get()):.20}")
-    val2.set(f"{result[0]:.20}")
-    val3.set(f"{result[1]:.20}")
-    earn.set(f"{result[2] - float(val1.get()):.20}")
+    val1.set(f"{float(val1.get()):.20f}")
+    val2.set(f"{result[0]:.20f}")
+    val3.set(f"{result[1]:.20f}")
+    earn.set(f"{result[2] - float(val1.get()):.20f}")
 
-    manual_value()[0].set(f"{result[3]:.16}")
-    manual_value()[1].set(f"{result[4]:.16}")
-    manual_value()[2].set(f"{result[5]:.16}")
+    manual_value()[0].set(f"{result[3]:.16f}")
+    manual_value()[1].set(f"{result[4]:.16f}")
+    manual_value()[2].set(f"{result[5]:.16f}")
 
     status.configure(require_redraw=True, text="OK", text_color="lightgreen")
     root.update_idletasks()
@@ -62,7 +62,7 @@ if __name__ == "__main__":
     combo_box_1.grid(row=0, column=2, padx=10, pady=10, sticky=ctk.NW)
 
     status = ctk.CTkLabel(frame, text="OK", text_color="lightgreen", font=("Arial", 16, "bold"))
-    status.grid(row=0, column=3, padx=10, pady=10, sticky=ctk.NW)
+    status.grid(row=3, column=1, padx=10, pady=10, sticky=ctk.NW)
 
     manual_1 = ctk.CTkEntry(frame, textvariable=manual_value()[0], width=140)
     manual_1.grid(row=1, column=0, padx=10, pady=10, sticky=ctk.NE)
@@ -83,11 +83,11 @@ if __name__ == "__main__":
     entry_3.grid(row=2, column=2, padx=10, pady=10, sticky=ctk.NW)
 
     entry_4 = ctk.CTkEntry(frame, textvariable=tx_earnings, state="readonly", width=180)
-    entry_4.grid(row=2, column=3, padx=10, pady=10, sticky=ctk.NW)
+    entry_4.grid(row=3, column=2, padx=10, pady=10, sticky=ctk.NW)
 
     ctk.CTkButton(frame, text="CALCULATE", command=lambda: calculate(status, tx_coin_1,
                                                                      tx_coin_1_value, tx_coin_2, tx_coin_2_value,
                                                                      tx_coin_3, tx_coin_3_value, tx_earnings)
-                  ).grid(row=3, column=0, columnspan=4, padx=10, pady=10,)
+                  ).grid(row=4, column=0, columnspan=4, padx=10, pady=10,)
 
     root.mainloop()
