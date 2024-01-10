@@ -1,10 +1,10 @@
 
 import circuit
+import grover_search_algo as gsa
 from qiskit.visualization import circuit_drawer
 
-# run first
-# conda activate qiskit_env
-q = circuit.Circuit()
-q.circuit.measure_all()
+# q = circuit.Circuit()
+q = gsa.grover_search("111")
+q.measure_all()
 image_path = "qiskit/q_output.png"
-circuit_drawer(q.circuit, output='mpl', filename=image_path)
+circuit_drawer(q, output='mpl', filename=image_path)

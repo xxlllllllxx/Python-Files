@@ -77,15 +77,16 @@ def grover_search(search_term):
     return circuit
 
 
-# Define the search term (an example: searching for '1101')
-search_term = '01000110'
+if __name__ == '__main__':
+    # Define the search term (an example: searching for '1101')
+    search_term = '010'
 
-# Create the circuit for Grover's algorithm
-grover_circuit = grover_search(search_term)
+    # Create the circuit for Grover's algorithm
+    grover_circuit = grover_search(search_term)
 
-# Simulate the circuit and obtain measurement outcomes
-simulator = Aer.get_backend('qasm_simulator')
-result = execute(grover_circuit, simulator).result()
-counts = result.get_counts()
+    # Simulate the circuit and obtain measurement outcomes
+    simulator = Aer.get_backend('qasm_simulator')
+    result = execute(grover_circuit, simulator).result()
+    counts = result.get_counts()
 
-print("Measurement outcomes:", counts)
+    print("Measurement outcomes:", counts)
