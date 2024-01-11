@@ -2,8 +2,10 @@ import customtkinter as ctk
 import requests
 from tkinter import END
 from openai import OpenAI
-
-client = OpenAI(api_key='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')
+import os
+from dotenv import load_dotenv
+load_dotenv()
+client = OpenAI(api_key=os.getenv('CHATGPT_KEY'))
 
 
 class ChatWindow(ctk.CTk):
