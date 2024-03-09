@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Arc
 from matplotlib.animation import FuncAnimation
 import random
+import serial
 from collections import deque
 
 
@@ -17,6 +18,8 @@ class MockSerial:
 
 
 ser = MockSerial()
+
+# ser = serial.Serial('/dev/ttyACM0', 57600)
 
 fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
 

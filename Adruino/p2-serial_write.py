@@ -1,7 +1,7 @@
 import serial
 import time
 
-port = serial.serial_for_url('loop://', timeout=1, baudrate=9600)
+port = serial.serial_for_url('COM3', timeout=1, baudrate=9600)
 
 
 def write_data(data):
