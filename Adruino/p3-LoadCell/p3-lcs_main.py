@@ -3,10 +3,8 @@
 # pip install pyserial
 # pip install matplotlib
 
-from matplotlib.lines import Line2D
 from matplotlib.patches import Arc
 from matplotlib.animation import FuncAnimation
-import random
 import serial
 from collections import deque
 import customtkinter as ctk
