@@ -2,6 +2,7 @@
 # env: config
 # pip install pyserial
 # pip install matplotlib
+# pip install customtkinter
 
 from matplotlib.patches import Arc
 from matplotlib.animation import FuncAnimation
