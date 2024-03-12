@@ -197,7 +197,7 @@ class App:
 
 if __name__ == "__main__":
     # NOTE: Configure this port and baudrate
-    arduino = serial.Arduino('/dev/ttyACM0', 9600, interval=100, negative_cal=650, precision_adj=100)
+    arduino = serial.Arduino('/dev/ttyACM0', 9600, interval=100, negative_cal=94, precision_adj=90)
     app = App(arduino)
 
     app.start()
