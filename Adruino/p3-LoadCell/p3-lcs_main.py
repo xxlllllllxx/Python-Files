@@ -1,18 +1,15 @@
-# pip install pyserial
-# pip install customtkinter
-# pip install matplotlib
-# pip install
 
 # TODO: change tp [ src.lcs_serial_mock as serial ] for realtime data
+# env: config
+# pip install pyserial
+# pip install matplotlib
+# pip install customtkinter
 
-import time
-from matplotlib.lines import Line2D
 from matplotlib.patches import Arc
 from matplotlib.animation import FuncAnimation
 import serial
 from collections import deque
 import customtkinter as ctk
-from matplotlib.typing import ColorType
 import src.lcs_graph as monitor
 import src.lcs_calibration as calibrate
 import src.lcs_serial as serial
